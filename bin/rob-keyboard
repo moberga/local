@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+
+case $BLOCK_BUTTON in
+    1) xkb-switch -n ;;
+    2) xkb-switch -l | dmenu | xargs -I{} xkb-switch -s "{}";;
+    3) notify-send "Tastiera";;
+    6) "$TERMINAL" -e "$EDITOR $0" ;;
+	# 9) pkill -RTMIN+30 dwmblocks ;;
+	9) sleep 1;;
+esac
+
+layout="$(xkb-switch -p)"
+layout_clean="${layout%(us)}"
+layout_caps="${layout_clean^^}"
+
+[[ $(xset -q | grep "Caps Lock:   off") ]] && echo "$layout_clean" || echo "$layout_caps" 
+
+unset state
+unset layout
+unset layout_clean
+unset layout_caps
+
