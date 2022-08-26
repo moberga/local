@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+prezzo=$(curl https://www.decathlon.it/p/creatina-in-polvere-317g/_/R-p-X8350123 | rg -A 7 "Creatina in polvere 317g" | rg "data-price" | cut -d\" -f4)
+
+
+case $BLOCK_BUTTON in
+    1) ;;
+    3) notify-send "Monitor prezzo della creatina";;
+esac
+
+echo $prezzo
+
