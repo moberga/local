@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+emacs --daemon &
+dwmblocks &
+dunst &
+sxhkd &
+picom &
+syncthing --no-browser --no-console &
+nitrogen --restore &
+xset r rate 240 50 &
+synclient RTCornerButton=2 &
+synclient TapButton1=1 &
+synclient TapButton2=1 &
+synclient VertTwoFingerScroll=0 &
+synclient VertEdgeScroll=1 &
+synclient HorizEdgeScroll=1 &
+setxkbmap -layout us,it -variant ,us &
